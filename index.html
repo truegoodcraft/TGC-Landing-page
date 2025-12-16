@@ -104,6 +104,59 @@
       border: 1px solid var(--border);
       border-radius: 8px;
       box-shadow: 0 8px 24px rgba(0,0,0,.4);
+      cursor: pointer;
+      transition: .2s ease;
+    }
+    .screenshot-grid img:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 32px rgba(0,0,0,.6);
+      border-color: var(--border2);
+    }
+
+    /* Lightbox Modal */
+    .lightbox {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,.92);
+      z-index: 9999;
+      align-items: center;
+      justify-content: center;
+      cursor: zoom-out;
+      backdrop-filter: blur(4px);
+    }
+    .lightbox.active {
+      display: flex;
+    }
+    .lightbox img {
+      max-width: 95%;
+      max-height: 95%;
+      border-radius: 8px;
+      box-shadow: 0 20px 60px rgba(0,0,0,.8);
+      cursor: zoom-out;
+    }
+    .lightbox-close {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      width: 40px;
+      height: 40px;
+      background: rgba(255,255,255,.1);
+      border: 1px solid var(--border2);
+      border-radius: 8px;
+      color: var(--text);
+      font-size: 24px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: .2s ease;
+    }
+    .lightbox-close:hover {
+      background: rgba(255,255,255,.15);
     }
 
     .feature-pill {
@@ -458,5 +511,51 @@
     </footer>
 
   </div>
+  <!-- Lightbox Modal -->
+  <div class="lightbox" id="lightbox">
+    <div class="lightbox-close" onclick="closeLightbox()">×</div>
+    <img id="lightbox-img" src="" alt="Screenshot">
+  </div>
+
+  <script>
+    // Lightbox functionality
+    function openLightbox(imgSrc) {
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImg = document.getElementById('lightbox-img');
+      lightboxImg.src = imgSrc;
+      lightbox.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+      const lightbox = document.getElementById('lightbox');
+      lightbox.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    // Close on click anywhere in lightbox
+    document.getElementById('lightbox').addEventListener('click', function(e) {
+      if (e.target.id === 'lightbox' || e.target.id === 'lightbox-img') {
+        closeLightbox();
+      }
+    });
+
+    // Close on ESC key
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        closeLightbox();
+      }
+    });
+
+    // Add click handlers to all screenshot images
+    document.addEventListener('DOMContentLoaded', function() {
+      const screenshots = document.querySelectorAll('.screenshot-grid img');
+      screenshots.forEach(img => {
+        img.addEventListener('click', function() {
+          openLightbox(this.src);
+        });
+      });
+    });
+  </script>
 </body>
 </html>
