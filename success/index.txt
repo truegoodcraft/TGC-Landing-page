@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SYSTEM STATE: PRO ACTIVE</title>
+    <style>
+        :root {
+            --bg: #121212;
+            --surface: #1a1a1a;
+            --primary: #4CAF50;
+            --text: #e0e0e0;
+            --muted: #888;
+            --border: #333;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: 'JetBrains Mono', 'Roboto Mono', monospace;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 600px;
+            width: 90%;
+            border: 1px solid var(--border);
+            padding: 3rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        h1 {
+            color: var(--primary);
+            font-size: 1.5rem;
+            margin-top: 0;
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 0.5rem;
+            letter-spacing: 2px;
+        }
+
+        .status-block {
+            background-color: var(--surface);
+            border-left: 4px solid var(--primary);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            font-size: 0.9rem;
+        }
+
+        .instruction {
+            color: var(--muted);
+            font-size: 0.85rem;
+            margin-bottom: 2rem;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--text);
+            color: var(--bg);
+            text-decoration: none;
+            padding: 0.8rem 1.5rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            transition: opacity 0.2s;
+        }
+
+        .btn:hover {
+            opacity: 0.8;
+        }
+
+        .receipt-link {
+            display: block;
+            margin-top: 1rem;
+            color: var(--muted);
+            text-decoration: underline;
+            font-size: 0.8rem;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>[ SUCCESS ]</h1>
+    <p>Handshake complete. The authoritative backend has recorded your Pro entitlement.</p>
+
+    <div class="status-block">
+        <pre>
+ENTITY:   BUS_CORE_PRO
+STATUS:   ACTIVE_SUB
+SOURCE:   STRIPE_AUTHORITATIVE
+SYNC:     READY_FOR_SHELL
+        </pre>
+    </div>
+
+    <p class="instruction">
+        Your 7-day offline grace period has been reset. You may now close this browser window and return to the <strong>BUS Pro Shell</strong> on your Windows machine.
+    </p>
+
+    <a href="buspro://sync" class="btn">Launch Pro Shell</a>
+    
+    <a href="https://billing.stripe.com/p/login/..." class="receipt-link">View Stripe Customer Portal</a>
+</div>
+
+</body>
+</html>
