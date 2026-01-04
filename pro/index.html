@@ -10,7 +10,6 @@
       --bg-dark: #0a0a0a;
       --bg-card: #141414;
       --accent-green: #22c55e;
-      --accent-green-dim: rgba(34, 197, 94, 0.1);
       --text-main: #f3f4f6;
       --text-muted: #9ca3af;
       --border: #27272a;
@@ -66,12 +65,13 @@
   <main>
 
     <!-- HERO -->
-    <section class="relative pt-16 pb-20 px-4 sm:px-6 hero-glow overflow-hidden">
+    <section class="relative pt-16 pb-10 px-4 sm:px-6 hero-glow overflow-hidden">
       <div class="max-w-3xl mx-auto text-center">
 
+        <!-- TRIAL BADGE -->
         <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full pill text-xs font-semibold uppercase tracking-wider mb-6">
           <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
-          Local-first manufacturing • Core free forever • Pro optional
+          14-day free trial • Core free forever • Local-first
         </div>
 
         <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight leading-tight mb-6">
@@ -79,47 +79,52 @@
           <span class="text-green-500">Run your shop properly.</span>
         </h1>
 
-        <!-- THIS IS THE CONVERSION SENTENCE -->
         <p class="text-lg sm:text-xl text-[var(--text-muted)] mb-8 leading-relaxed max-w-2xl mx-auto">
           <strong class="text-white">BUS Core</strong> is your local-first inventory + manufacturing engine:
           <strong class="text-white">batches</strong>, <strong class="text-white">recipes (BOM)</strong>, and <strong class="text-white">FIFO costing</strong>.
-          <strong class="text-white">Pro</strong> makes it a daily-driver: a real desktop launcher, clean entitlement handling, and a Pro workbench for faster purchasing/RFQs.
-          No ERP hostage pricing. No “cloud-only” nonsense.
+          <strong class="text-white">Pro</strong> makes it a daily-driver: a real desktop launcher, clean entitlement handling,
+          and a Pro workbench for faster purchasing/RFQs — without ERP hostage pricing.
         </p>
 
         <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <!-- primary CTA should be download -->
-          <a href="https://github.com/truegoodcraft/TGC-BUS-Core/releases" class="btn-primary w-full sm:w-auto px-8 py-4 rounded-xl text-lg shadow-[0_0_20px_rgba(34,197,94,0.30)]">
-            Download (Core + Pro)
+          <a href="https://github.com/truegoodcraft/TGC-BUS-Core/releases"
+             class="btn-primary w-full sm:w-auto px-8 py-4 rounded-xl text-lg shadow-[0_0_20px_rgba(34,197,94,0.30)]">
+            Download & Start Trial
           </a>
           <a href="#pricing" class="btn-secondary w-full sm:w-auto px-8 py-4 rounded-xl text-lg font-semibold">
-            Enable Pro
+            See Pro Pricing
           </a>
         </div>
 
         <p class="mt-4 text-xs text-[var(--text-muted)]">
-          Works offline for Core. Pro checks entitlement at launch and can run offline (up to 7 days) using cached tokens.
+          Trial starts when you sign in. Cancel anytime. Core keeps running forever.
         </p>
 
-        <!-- quick trust strip -->
-        <div class="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-3 max-w-3xl mx-auto">
-          <div class="card rounded-2xl p-4 text-left">
-            <div class="text-xs font-mono text-[var(--text-muted)] mb-1">CORE</div>
-            <div class="font-semibold text-white">Inventory + Manufacturing</div>
-            <div class="text-xs text-[var(--text-muted)] mt-1">Batches • BOM/recipes • FIFO</div>
+      </div>
+    </section>
+
+    <!-- TRIAL FLOW STRIP (this converts) -->
+    <section class="max-w-4xl mx-auto px-4 pb-12">
+      <div class="card rounded-2xl p-6 border border-green-500/20">
+        <div class="flex flex-col md:flex-row gap-4 md:items-center md:justify-between">
+          <div class="text-left">
+            <div class="text-xs font-mono text-[var(--text-muted)] mb-1">START IN 60 SECONDS</div>
+            <div class="text-white font-semibold">Download → Sign in (magic link) → 14-day trial begins</div>
+            <div class="text-sm text-[var(--text-muted)] mt-1">
+              No mid-session lockouts. Entitlement checks at launch, then stays out of your way.
+            </div>
           </div>
-          <div class="card rounded-2xl p-4 text-left">
-            <div class="text-xs font-mono text-[var(--text-muted)] mb-1">PRO</div>
-            <div class="font-semibold text-white">Daily-driver polish</div>
-            <div class="text-xs text-[var(--text-muted)] mt-1">Launcher • Entitlements • Workbench</div>
-          </div>
-          <div class="card rounded-2xl p-4 text-left">
-            <div class="text-xs font-mono text-[var(--text-muted)] mb-1">PRICING</div>
-            <div class="font-semibold text-white">$19.99/mo</div>
-            <div class="text-xs text-[var(--text-muted)] mt-1">Cancel anytime</div>
+          <div class="flex gap-3 shrink-0">
+            <a href="https://github.com/truegoodcraft/TGC-BUS-Core/releases"
+               class="btn-primary px-5 py-3 rounded-lg text-sm text-center">
+              Download
+            </a>
+            <a href="https://buscore.ca"
+               class="btn-secondary px-5 py-3 rounded-lg text-sm text-center">
+              Core (Free)
+            </a>
           </div>
         </div>
-
       </div>
     </section>
 
@@ -162,7 +167,6 @@
         </div>
       </div>
 
-      <!-- punchy “what this replaces” block -->
       <div class="mt-10 card rounded-2xl p-6 text-left">
         <div class="text-sm font-mono text-[var(--text-muted)] mb-2">WHY THIS MATTERS</div>
         <h3 class="text-xl font-bold text-white mb-2">This replaces tribal memory.</h3>
@@ -173,7 +177,7 @@
       </div>
     </section>
 
-    <!-- PRICING / WHY PRO -->
+    <!-- PRICING -->
     <section id="pricing" class="max-w-5xl mx-auto px-4 pb-24">
       <div class="card rounded-3xl p-1 bg-gradient-to-b from-[var(--border)] to-[var(--bg-card)]">
         <div class="bg-[var(--bg-card)] rounded-[22px] p-8 sm:p-12">
@@ -222,21 +226,21 @@
                   <div>
                     <strong class="block text-white">Pro Workbench (purchasing / RFQs)</strong>
                     <span class="text-sm text-[var(--text-muted)]">
-                      A dedicated workbench for shop workflows. (Early access: UI + scaffolding; features expand over time.)
+                      Dedicated workflow tools for the shop. Early access expands fast.
                     </span>
                   </div>
                 </li>
               </ul>
 
               <p class="mt-6 text-xs text-[var(--text-muted)]">
-                Core remains free forever. Pro is optional and never “holds your data hostage.”
+                Core remains free forever. Pro is optional and never holds your data hostage.
               </p>
             </div>
 
             <!-- Pricing card -->
             <div class="card bg-black/40 rounded-2xl p-8 border border-green-500/20 text-center relative overflow-hidden">
               <div class="absolute top-0 right-0 bg-green-600 text-white text-[10px] font-bold px-3 py-1 rounded-bl-xl uppercase">
-                Early Access
+                14-Day Trial
               </div>
 
               <h3 class="text-[var(--text-muted)] font-medium mb-2">BUS Core Pro</h3>
@@ -246,20 +250,17 @@
                 <span class="text-[var(--text-muted)] font-semibold">/ month</span>
               </div>
 
-              <p class="text-sm text-green-400 mb-6 font-medium">Simple subscription. Cancel anytime.</p>
+              <p class="text-sm text-green-400 mb-6 font-medium">
+                Start free for 14 days. Cancel anytime.
+              </p>
 
-              <!-- best CTA = download (get them in product) -->
               <a href="https://github.com/truegoodcraft/TGC-BUS-Core/releases" class="w-full btn-primary py-3 rounded-lg text-lg mb-3 inline-block">
-                Download (Core + Pro)
-              </a>
-
-              <a href="https://buscore.ca/pro/" class="w-full btn-secondary py-3 rounded-lg text-sm font-semibold inline-block">
-                Already installed? Enable Pro in-app
+                Download & Start Trial
               </a>
 
               <p class="mt-5 text-xs text-[var(--text-muted)] leading-relaxed">
-                Pro requires an account for entitlements. Core remains fully usable without Pro.
-                Pro can run offline using cached tokens (up to 7 days).
+                Trial starts when you sign in with your email (magic link). Pro checks entitlement at launch and can run offline
+                using cached tokens (up to 7 days). Core remains fully usable without Pro.
               </p>
             </div>
 
@@ -267,7 +268,7 @@
         </div>
       </div>
 
-      <!-- ERP price punch (conversion section) -->
+      <!-- ERP price punch -->
       <div class="mt-10 grid grid-cols-1 lg:grid-cols-3 gap-6">
         <div class="card rounded-2xl p-6">
           <div class="text-sm font-mono text-[var(--text-muted)] mb-2">THE ERP TAX</div>
@@ -292,16 +293,16 @@
       <div class="card rounded-3xl p-8 sm:p-12 border border-green-500/20">
         <div class="flex flex-col lg:flex-row items-center justify-between gap-8">
           <div class="text-left">
-            <h2 class="text-3xl font-bold">Don’t overthink it.</h2>
+            <h2 class="text-3xl font-bold">Try it like a tool, not a religion.</h2>
             <p class="mt-3 text-[var(--text-muted)] text-lg max-w-2xl">
-              Download it. If Core fixes your inventory/manufacturing mess, keep it forever.
-              If Pro makes it your daily-driver, enable it. If not — no harm done.
+              Download it. Run a real job through it. If Pro saves you time, keep it after the 14-day trial.
+              If not — keep Core free forever.
             </p>
           </div>
 
           <div class="flex flex-col sm:flex-row gap-3 w-full lg:w-auto">
             <a href="https://github.com/truegoodcraft/TGC-BUS-Core/releases" class="btn-primary px-8 py-4 rounded-xl text-lg text-center w-full lg:w-auto">
-              Download Now
+              Download & Start Trial
             </a>
             <a href="#pricing" class="btn-secondary px-8 py-4 rounded-xl text-lg text-center w-full lg:w-auto">
               Pricing
@@ -310,7 +311,7 @@
         </div>
 
         <p class="mt-6 text-xs text-[var(--text-muted)]">
-          © 2026 True Good Craft • BUS Core is local-first software. Pro is an optional paid layer for desktop polish + workbench tools.
+          © 2026 True Good Craft • BUS Core is local-first inventory + manufacturing. Pro is an optional paid layer.
         </p>
       </div>
     </section>
