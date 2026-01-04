@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BUS Core Pro — Professional tools for the modern workshop</title>
+  <title>BUS Core Pro — Stop wasting time on spreadsheets. Run your shop properly.</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     :root{
@@ -24,21 +24,33 @@
       background: var(--green);
       color:#041108;
       box-shadow: 0 18px 40px rgba(34,197,94,.18);
+      transition: all .18s ease;
     }
-    .btn-primary:hover{ filter: brightness(.95); transform: translateY(-1px) scale(1.02); }
+    .btn-primary:hover{ filter: brightness(.96); transform: translateY(-1px) scale(1.02); }
     .btn-secondary{
       background: rgba(255,255,255,.03);
       border: 1px solid rgba(255,255,255,.10);
       color:#e5e7eb;
+      transition: all .18s ease;
     }
     .btn-secondary:hover{ border-color: rgba(34,197,94,.45); transform: translateY(-1px); }
     .soft-border{ border: 1px solid rgba(255,255,255,.10); }
     .muted{ color: var(--muted); }
+
+    /* Optional tiny “confidence” hover */
+    .lift:hover{ transform: translateY(-2px); }
   </style>
 </head>
 
 <body>
   <main class="max-w-6xl mx-auto px-4 sm:px-6 pb-16">
+
+    <!--
+      ===== CONFIG NOTE =====
+      If you DO have a real trial today, set TRIAL_TEXT to "Free trial".
+      If you do NOT have a trial, set TRIAL_TEXT to "Cancel anytime".
+      (No JS here; just edit the two spots marked TRIAL_TEXT.)
+    -->
 
     <!-- HERO -->
     <section class="card glow rounded-3xl p-8 sm:p-12 mt-12 soft-border">
@@ -48,37 +60,59 @@
         <div class="lg:col-span-7">
           <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-sm muted">
             <span class="w-2 h-2 rounded-full" style="background:var(--green)"></span>
-            Pro is live • Free trial • $19.99/mo after
+            For small manufacturing shops • TRIAL_TEXT • Local-first
           </div>
 
           <h1 class="mt-6 text-4xl sm:text-6xl font-bold tracking-tight leading-tight">
-            Professional tools for <br>
-            <span style="color:var(--green)">the modern workshop.</span>
+            Stop wasting time on spreadsheets.<br>
+            <span style="color:var(--green)">Run your shop properly.</span>
           </h1>
 
+          <!-- THE MISSING DEFINITION (first 10 seconds) -->
           <p class="mt-6 text-lg sm:text-xl muted leading-relaxed max-w-2xl">
-            BUS Core stays free forever. Pro is the optional upgrade layer: a real desktop app feel,
-            entitlement-backed features, and “stable + boring” mechanics so you can stop babysitting your tooling.
+            <span class="text-white font-semibold">BUS Core</span> is local-first inventory + manufacturing:
+            <span class="text-white font-semibold">recipes (BOM)</span>, <span class="text-white font-semibold">manufacturing runs</span>,
+            and <span class="text-white font-semibold">FIFO batch costing</span>.
+            <span class="text-white font-semibold">Pro</span> is the upgrade layer: a real desktop app feel plus Pro workbench tools
+            (RFQ/purchasing automation) — without ERP hostage pricing.
           </p>
 
           <div class="mt-8 flex flex-col sm:flex-row gap-4">
             <a href="https://github.com/truegoodcraft/TGC-BUS-Core/releases"
-               class="px-8 py-4 rounded-2xl font-bold text-lg transition-all btn-primary text-center">
-              Download Pro (Free Trial)
+               class="px-8 py-4 rounded-2xl font-bold text-lg btn-primary text-center">
+              Download (Core + Pro)
             </a>
-            <a href="https://buscore.ca"
-               class="px-8 py-4 rounded-2xl font-semibold transition-all btn-secondary text-center">
-              Use Core Free
+            <a href="#core-vs-pro"
+               class="px-8 py-4 rounded-2xl font-semibold btn-secondary text-center">
+              See Core vs Pro
             </a>
           </div>
 
           <p class="mt-4 text-sm muted">
-            Core is local-first and doesn’t require a cloud subscription. Pro uses network/account for entitlements.
-            No mid-session lockouts — checks at launch, then stays out of your way.
+            Core runs local-first. Pro uses account/entitlement services. No mid-session gating — checks at launch, then stays out of your way.
           </p>
+
+          <!-- quick credibility strip -->
+          <div class="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-3">
+            <div class="rounded-2xl soft-border bg-white/5 p-4">
+              <div class="text-xs uppercase tracking-widest muted">Core</div>
+              <div class="mt-1 font-semibold text-white">Manufacturing engine</div>
+              <div class="mt-1 text-xs muted">BOM/recipes • FIFO • runs</div>
+            </div>
+            <div class="rounded-2xl soft-border bg-white/5 p-4">
+              <div class="text-xs uppercase tracking-widest muted">Pro</div>
+              <div class="mt-1 font-semibold text-white">Daily driver</div>
+              <div class="mt-1 text-xs muted">Launcher • entitlements • workbench</div>
+            </div>
+            <div class="rounded-2xl soft-border bg-white/5 p-4">
+              <div class="text-xs uppercase tracking-widest muted">Pricing</div>
+              <div class="mt-1 font-semibold text-white">$19.99/mo</div>
+              <div class="mt-1 text-xs muted">Cancel anytime</div>
+            </div>
+          </div>
         </div>
 
-        <!-- Right: Pricing Card (simple, clean, green-first) -->
+        <!-- Right: Pro card -->
         <div class="lg:col-span-5">
           <div class="rounded-3xl soft-border bg-white/5 p-6 sm:p-8">
             <div class="flex items-start justify-between gap-4">
@@ -88,187 +122,251 @@
                   $19.99<span class="text-base muted">/mo</span>
                 </div>
                 <div class="mt-1 text-sm muted">
-                  After trial • Cancel anytime
+                  TRIAL_TEXT • Cancel anytime
                 </div>
               </div>
               <div class="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs muted">
-                Stable + boring
+                No ERP tax
               </div>
             </div>
 
-            <ul class="mt-6 space-y-3 muted">
+            <div class="mt-6 text-sm uppercase tracking-widest muted">Why Pro exists</div>
+            <ul class="mt-3 space-y-3 muted text-sm">
               <li class="flex gap-3">
-                <span class="mt-1 w-2 h-2 rounded-full" style="background:var(--green)"></span>
-                Desktop launcher experience (no terminal rituals)
+                <span class="mt-1 w-2 h-2 rounded-full flex-shrink-0" style="background:var(--green)"></span>
+                <span><strong class="text-white">Launcher + native app feel:</strong> click, open, work. No terminal rituals.</span>
               </li>
               <li class="flex gap-3">
-                <span class="mt-1 w-2 h-2 rounded-full" style="background:var(--green)"></span>
-                Pro entitlement validation + caching
+                <span class="mt-1 w-2 h-2 rounded-full flex-shrink-0" style="background:var(--green)"></span>
+                <span><strong class="text-white">Entitlements that behave:</strong> check at launch, cached access, no mid-session interruptions.</span>
               </li>
               <li class="flex gap-3">
-                <span class="mt-1 w-2 h-2 rounded-full" style="background:var(--green)"></span>
-                Manage subscription / billing link in-app
+                <span class="mt-1 w-2 h-2 rounded-full flex-shrink-0" style="background:var(--green)"></span>
+                <span><strong class="text-white">Pro Workbench tools:</strong> RFQ/purchasing accelerators and workflow automation.</span>
               </li>
               <li class="flex gap-3">
-                <span class="mt-1 w-2 h-2 rounded-full" style="background:var(--green)"></span>
-                Core remains free and unaffected
+                <span class="mt-1 w-2 h-2 rounded-full flex-shrink-0" style="background:var(--green)"></span>
+                <span><strong class="text-white">Core stays free:</strong> cancel Pro any time — Core still runs, data stays local-first.</span>
               </li>
             </ul>
 
             <a href="https://github.com/truegoodcraft/TGC-BUS-Core/releases"
-               class="mt-7 block text-center px-8 py-4 rounded-2xl font-bold text-lg transition-all btn-primary">
-              Download & Try Free
+               class="mt-7 block text-center px-8 py-4 rounded-2xl font-bold text-lg btn-primary">
+              Download Now
             </a>
 
             <p class="mt-3 text-xs muted text-center">
-              Cancel anytime. Core still runs.
+              If this page doesn’t convince them, the download will. That’s the point.
             </p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- TRIAL FLOW CALLOUT (simple version from the clean page, but Tailwind-styled) -->
-    <section class="mt-8 rounded-2xl soft-border p-6"
-             style="border-color: rgba(34,197,94,.35); background: rgba(34,197,94,.06);">
-      <div class="flex items-start gap-4">
-        <div class="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0"
-             style="background: rgba(34,197,94,.10); border: 1px solid rgba(34,197,94,.35);">
-          <span style="color:var(--green)" class="text-xl font-bold">✓</span>
-        </div>
-        <div>
-          <div class="font-bold text-white">Free Trial Flow</div>
-          <p class="mt-2 muted text-sm">
-            Download Pro → Sign in with email (magic link) → Trial access → Upgrade anytime from
-            <span class="text-white font-semibold">Manage Subscription</span> inside the app.
-          </p>
-        </div>
+    <!-- WHAT IT DOES (manufacturing logic explained simply) -->
+    <section class="mt-12 rounded-3xl soft-border bg-white/5 p-8 sm:p-12">
+      <div class="text-center mb-10">
+        <h2 class="text-3xl font-bold">What it actually does (manufacturing)</h2>
+        <p class="mt-3 muted text-lg max-w-3xl mx-auto">
+          This is the boring part. Also the part that saves money.
+        </p>
       </div>
-    </section>
 
-    <!-- TRUST STRIP -->
-    <section class="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-4">
-      <div class="rounded-2xl soft-border bg-white/5 p-5">
-        <div class="text-sm uppercase tracking-widest muted">Core</div>
-        <div class="mt-2 font-bold text-white text-lg">Free forever</div>
-        <div class="mt-1 text-sm muted">Local database. Your workflows.</div>
-      </div>
-      <div class="rounded-2xl soft-border bg-white/5 p-5">
-        <div class="text-sm uppercase tracking-widest muted">Pro</div>
-        <div class="mt-2 font-bold text-white text-lg">$19.99/mo</div>
-        <div class="mt-1 text-sm muted">Entitlements + upgrade layer.</div>
-      </div>
-      <div class="rounded-2xl soft-border bg-white/5 p-5">
-        <div class="text-sm uppercase tracking-widest muted">Policy</div>
-        <div class="mt-2 font-bold text-white text-lg">No lockouts</div>
-        <div class="mt-1 text-sm muted">No mid-session gating. Start-up checks only.</div>
-      </div>
-    </section>
-
-    <!-- FEATURES -->
-    <section class="mt-12">
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div class="card rounded-3xl p-8 soft-border bg-white/5">
-          <h3 class="font-bold text-xl mb-3">A Real App, Not a Ritual</h3>
-          <p class="muted">
-            Click an icon. It opens. No terminal gymnastics. No guessing which command.
+        <div class="rounded-2xl soft-border bg-black/20 p-6 lift">
+          <div class="font-semibold text-white">1) Receive inventory (as batches)</div>
+          <p class="mt-2 muted text-sm">
+            Bring stock in with quantity + cost (and dates). You keep history instead of “one magic number”.
           </p>
           <div class="mt-4 inline-flex items-center gap-2 text-xs muted bg-white/5 border border-white/10 rounded-full px-3 py-1">
             <span class="w-2 h-2 rounded-full" style="background:var(--green)"></span>
-            One-click launch
+            Batch-aware
           </div>
         </div>
 
-        <div class="card rounded-3xl p-8 soft-border bg-white/5">
-          <h3 class="font-bold text-xl mb-3">Entitlements That Behave</h3>
-          <p class="muted">
-            Validates cleanly, caches access, and doesn’t nag while you’re working.
+        <div class="rounded-2xl soft-border bg-black/20 p-6 lift">
+          <div class="font-semibold text-white">2) Define recipes (BOM)</div>
+          <p class="mt-2 muted text-sm">
+            Set inputs per unit once. Stop rebuilding BOM math in spreadsheets for every job or run.
           </p>
           <div class="mt-4 inline-flex items-center gap-2 text-xs muted bg-white/5 border border-white/10 rounded-full px-3 py-1">
             <span class="w-2 h-2 rounded-full" style="background:var(--green)"></span>
-            Check at launch
+            BOM/recipe
           </div>
         </div>
 
-        <div class="card rounded-3xl p-8 soft-border bg-white/5">
-          <h3 class="font-bold text-xl mb-3">Core Stays Sacred</h3>
-          <p class="muted">
-            Pro never corrupts Core. Cancel Pro anytime — Core still runs and your data stays yours.
+        <div class="rounded-2xl soft-border bg-black/20 p-6 lift">
+          <div class="font-semibold text-white">3) Run manufacturing (consume + produce)</div>
+          <p class="mt-2 muted text-sm">
+            Create outputs by consuming inputs. FIFO batch costing uses oldest stock first so costs stay sane.
           </p>
           <div class="mt-4 inline-flex items-center gap-2 text-xs muted bg-white/5 border border-white/10 rounded-full px-3 py-1">
             <span class="w-2 h-2 rounded-full" style="background:var(--green)"></span>
-            No hostage situation
+            FIFO logic
           </div>
+        </div>
+      </div>
+
+      <div class="mt-10 rounded-3xl soft-border bg-black/25 p-8">
+        <div class="flex flex-col lg:flex-row gap-8 items-start">
+          <div class="flex-1">
+            <div class="text-sm uppercase tracking-widest muted">What this replaces</div>
+            <h3 class="mt-2 text-2xl font-bold text-white">Spreadsheet glue and “tribal memory”</h3>
+            <p class="mt-3 muted">
+              The goal isn’t “more software”. The goal is fewer hours burned on tracking, costing, and quoting.
+            </p>
+          </div>
+          <div class="w-full lg:w-[520px] grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div class="rounded-2xl soft-border bg-white/5 p-5">
+              <div class="text-white font-semibold">Know what you really have</div>
+              <div class="mt-1 text-sm muted">Not “probably”. Not “I think”.</div>
+            </div>
+            <div class="rounded-2xl soft-border bg-white/5 p-5">
+              <div class="text-white font-semibold">Know what it really costs</div>
+              <div class="mt-1 text-sm muted">FIFO batch costs you can defend.</div>
+            </div>
+            <div class="rounded-2xl soft-border bg-white/5 p-5">
+              <div class="text-white font-semibold">Stop rebuilding BOM math</div>
+              <div class="mt-1 text-sm muted">Recipes/BOM are reusable.</div>
+            </div>
+            <div class="rounded-2xl soft-border bg-white/5 p-5">
+              <div class="text-white font-semibold">Quote faster (Pro)</div>
+              <div class="mt-1 text-sm muted">Workbench tools accelerate RFQs/purchasing.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="https://github.com/truegoodcraft/TGC-BUS-Core/releases"
+           class="px-8 py-4 rounded-2xl font-bold text-lg btn-primary text-center">
+          Download (Core + Pro)
+        </a>
+        <a href="#core-vs-pro"
+           class="px-8 py-4 rounded-2xl font-semibold btn-secondary text-center">
+          Compare Core vs Pro
+        </a>
+      </div>
+    </section>
+
+    <!-- WHO IT'S FOR -->
+    <section class="mt-16 rounded-3xl soft-border bg-white/5 p-8 sm:p-12">
+      <div class="text-center mb-10">
+        <h2 class="text-3xl font-bold">Built for small shops that make things</h2>
+        <p class="mt-3 muted text-lg max-w-3xl mx-auto">
+          If you track inventory in spreadsheets and quote jobs by hand, this is for you.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="text-center">
+          <div class="w-16 h-16 rounded-full mx-auto flex items-center justify-center"
+               style="background: rgba(34,197,94,.10); border: 1px solid rgba(34,197,94,.35);">
+            <span style="color:var(--green)" class="text-2xl">🔧</span>
+          </div>
+          <h3 class="mt-4 font-bold text-lg">Machine Shops</h3>
+          <p class="mt-2 muted text-sm">
+            Bar stock, sheet goods, hardware. BOM-based builds. FIFO batch costing.
+          </p>
+        </div>
+
+        <div class="text-center">
+          <div class="w-16 h-16 rounded-full mx-auto flex items-center justify-center"
+               style="background: rgba(34,197,94,.10); border: 1px solid rgba(34,197,94,.35);">
+            <span style="color:var(--green)" class="text-2xl">⚡</span>
+          </div>
+          <h3 class="mt-4 font-bold text-lg">Fabrication</h3>
+          <p class="mt-2 muted text-sm">
+            Assemblies, sub-assemblies, consumables. Stop quoting blind.
+          </p>
+        </div>
+
+        <div class="text-center">
+          <div class="w-16 h-16 rounded-full mx-auto flex items-center justify-center"
+               style="background: rgba(34,197,94,.10); border: 1px solid rgba(34,197,94,.35);">
+            <span style="color:var(--green)" class="text-2xl">📦</span>
+          </div>
+          <h3 class="mt-4 font-bold text-lg">Small Manufacturing</h3>
+          <p class="mt-2 muted text-sm">
+            Real costing, real builds, real inventory — without enterprise ERP pricing.
+          </p>
         </div>
       </div>
     </section>
 
-    <!-- HOW IT WORKS (clean-page vibe: simple steps + side card) -->
-    <section class="mt-16 rounded-3xl soft-border bg-white/5 p-8 sm:p-12">
-      <div class="flex flex-col lg:flex-row gap-10 items-start">
-        <div class="flex-1">
-          <h2 class="text-3xl font-bold">How Pro works</h2>
-          <p class="mt-4 muted text-lg max-w-3xl">
-            Pro is designed to be boring: validate at launch, show status clearly, and offer a clean path to manage billing.
-            It doesn’t interrupt your session. It doesn’t rewrite Core.
-          </p>
+    <!-- CORE VS PRO -->
+    <section id="core-vs-pro" class="mt-16 rounded-3xl soft-border bg-white/5 p-8 sm:p-12">
+      <h2 class="text-3xl font-bold text-center mb-10">Core vs Pro: What you get</h2>
 
-          <ol class="mt-8 space-y-4 muted">
-            <li class="flex gap-4">
-              <div class="w-8 h-8 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-sm text-white font-bold">1</div>
-              <div>
-                <div class="text-white font-semibold">Install Pro</div>
-                <div class="text-sm">You get a proper app wrapper + upgrade tooling around Core.</div>
-              </div>
-            </li>
-            <li class="flex gap-4">
-              <div class="w-8 h-8 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-sm text-white font-bold">2</div>
-              <div>
-                <div class="text-white font-semibold">Sign in</div>
-                <div class="text-sm">Magic link sign-in → entitlement check → you’re in.</div>
-              </div>
-            </li>
-            <li class="flex gap-4">
-              <div class="w-8 h-8 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-sm text-white font-bold">3</div>
-              <div>
-                <div class="text-white font-semibold">Work normally</div>
-                <div class="text-sm">No mid-session “gotchas.” Pro stays out of the way.</div>
-              </div>
-            </li>
-          </ol>
-        </div>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <!-- Core -->
+        <div class="rounded-2xl soft-border bg-black/20 p-8">
+          <div class="flex items-start justify-between mb-6">
+            <div>
+              <h3 class="text-2xl font-bold">Core</h3>
+              <div class="mt-2 text-3xl font-bold text-white">$0<span class="text-lg muted">/forever</span></div>
+            </div>
+            <div class="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs muted">
+              Always free
+            </div>
+          </div>
 
-        <div class="w-full lg:w-[420px] rounded-3xl soft-border bg-black/30 p-6">
-          <div class="text-sm uppercase tracking-widest muted">Pro includes</div>
-          <ul class="mt-4 space-y-3 muted">
-            <li class="flex gap-3"><span class="mt-1 w-2 h-2 rounded-full" style="background:var(--green)"></span>Desktop wrapper / launcher</li>
-            <li class="flex gap-3"><span class="mt-1 w-2 h-2 rounded-full" style="background:var(--green)"></span>Subscription entitlement checks</li>
-            <li class="flex gap-3"><span class="mt-1 w-2 h-2 rounded-full" style="background:var(--green)"></span>Cached access state</li>
-            <li class="flex gap-3"><span class="mt-1 w-2 h-2 rounded-full" style="background:var(--green)"></span>Billing management link</li>
+          <ul class="space-y-3 muted text-sm">
+            <li class="flex gap-3"><span class="mt-1 text-white">✓</span><span>Inventory tracking (parts, materials, stock levels)</span></li>
+            <li class="flex gap-3"><span class="mt-1 text-white">✓</span><span>Recipes / BOM (define inputs per unit)</span></li>
+            <li class="flex gap-3"><span class="mt-1 text-white">✓</span><span>Manufacturing runs (consume inputs, produce outputs)</span></li>
+            <li class="flex gap-3"><span class="mt-1 text-white">✓</span><span>FIFO batch costing (oldest stock first)</span></li>
+            <li class="flex gap-3"><span class="mt-1 text-white">✓</span><span>Local-first: your data stays on your machine</span></li>
+            <li class="flex gap-3"><span class="mt-1 text-white">✓</span><span>Open source (MIT license)</span></li>
           </ul>
 
-          <div class="mt-6 rounded-2xl soft-border bg-white/5 p-4">
-            <div class="text-xs uppercase tracking-widest muted">Price</div>
-            <div class="mt-2 text-2xl font-bold text-white">$19.99/mo</div>
-            <div class="mt-1 text-xs muted">After trial • Cancel anytime • Core still runs</div>
+          <a href="https://buscore.ca"
+             class="mt-6 block text-center px-6 py-3 rounded-2xl font-semibold btn-secondary">
+            Learn about Core
+          </a>
+        </div>
+
+        <!-- Pro -->
+        <div class="rounded-2xl soft-border p-8"
+             style="background: rgba(34,197,94,.08); border-color: rgba(34,197,94,.28);">
+          <div class="flex items-start justify-between mb-6">
+            <div>
+              <h3 class="text-2xl font-bold">Pro</h3>
+              <div class="mt-2 text-3xl font-bold text-white">$19.99<span class="text-lg muted">/mo</span></div>
+            </div>
+            <div class="px-3 py-1 rounded-full bg-white/10 border border-white/10 text-xs text-white">
+              TRIAL_TEXT
+            </div>
           </div>
 
+          <ul class="space-y-3 muted text-sm">
+            <li class="flex gap-3"><span class="mt-1 text-white">✓</span><span><strong class="text-white">Everything in Core, plus:</strong></span></li>
+            <li class="flex gap-3"><span class="mt-1" style="color:var(--green)">★</span><span><strong class="text-white">Desktop launcher:</strong> one-click open, native app feel</span></li>
+            <li class="flex gap-3"><span class="mt-1" style="color:var(--green)">★</span><span><strong class="text-white">Entitlements that behave:</strong> check at launch, cached access</span></li>
+            <li class="flex gap-3"><span class="mt-1" style="color:var(--green)">★</span><span><strong class="text-white">Pro Workbench:</strong> RFQ/purchasing accelerators + workflow automation</span></li>
+            <li class="flex gap-3"><span class="mt-1" style="color:var(--green)">★</span><span><strong class="text-white">Priority support lane:</strong> direct help when you need it</span></li>
+          </ul>
+
           <a href="https://github.com/truegoodcraft/TGC-BUS-Core/releases"
-             class="mt-5 block text-center px-6 py-3 rounded-2xl font-bold transition-all btn-primary">
-            Download Pro (Free Trial)
+             class="mt-6 block text-center px-6 py-3 rounded-2xl font-bold btn-primary">
+            Download Pro
           </a>
         </div>
       </div>
+
+      <p class="mt-8 text-center muted text-sm">
+        Cancel Pro anytime. Core keeps running. Your data stays local-first.
+      </p>
     </section>
 
-    <!-- ERP COST COMPARISON (keep it punchy + green-first) -->
+    <!-- ERP COST COMPARISON -->
     <section class="mt-16 rounded-3xl soft-border bg-white/5 p-8 sm:p-12">
-      <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
+      <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-10">
         <div>
           <h2 class="text-3xl font-bold">ERP pricing is… yeah.</h2>
           <p class="mt-3 muted text-lg max-w-3xl">
-            A lot of “small business ERP/MRP” pricing is engineered to be painful to leave.
-            Here’s the blunt comparison over 36 months.
+            Most “small business ERP/MRP” tools run $300–$600/month and love lock-in.
+            Here’s the 36-month comparison.
           </p>
         </div>
         <div class="text-sm muted">
@@ -280,8 +378,7 @@
         </div>
       </div>
 
-      <div class="mt-10 grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <!-- Your product -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
         <div class="rounded-3xl soft-border p-7"
              style="background: rgba(34,197,94,.08); border-color: rgba(34,197,94,.28);">
           <div class="flex items-start justify-between gap-4">
@@ -294,35 +391,30 @@
               predictable
             </div>
           </div>
-
           <div class="mt-6 muted">
             Core is still <span class="text-white font-semibold">$0</span>. Pro is optional.
             If you cancel, Core keeps running.
           </div>
         </div>
 
-        <!-- Competitors -->
         <div class="rounded-3xl soft-border bg-black/30 p-7">
           <div class="text-sm uppercase tracking-widest muted">Typical competitors</div>
-
           <div class="mt-5 space-y-4 text-sm">
             <div class="flex items-start justify-between gap-6">
               <div>
-                <div class="font-semibold text-white">MRP / Inventory SaaS</div>
-                <div class="muted">$399/mo → $599/mo (common range)</div>
+                <div class="font-semibold text-white">Manufacturing ERP/MRP</div>
+                <div class="muted">$399/mo → $599/mo (typical range)</div>
               </div>
               <div class="text-right">
                 <div class="text-white font-semibold">$14,364 → $21,564</div>
                 <div class="text-xs muted">over 36 months</div>
               </div>
             </div>
-
             <div class="h-px bg-white/10"></div>
-
             <div class="flex items-start justify-between gap-6">
               <div>
-                <div class="font-semibold text-white">Accounting + add-ons</div>
-                <div class="muted">$220/mo + integrations (varies)</div>
+                <div class="font-semibold text-white">Inventory + Accounting</div>
+                <div class="muted">$220/mo + add-ons (varies)</div>
               </div>
               <div class="text-right">
                 <div class="text-white font-semibold">$7,920+</div>
@@ -330,70 +422,69 @@
               </div>
             </div>
           </div>
-
           <p class="mt-5 text-xs muted">
-            Totals exclude taxes, implementation, add-ons, and price changes. Swap the ranges above for named competitors when you’re ready.
+            Excludes taxes, implementation fees, per-user costs, and “surprise” price hikes.
           </p>
         </div>
       </div>
 
       <div class="mt-10 flex flex-col sm:flex-row gap-4">
         <a href="https://github.com/truegoodcraft/TGC-BUS-Core/releases"
-           class="px-8 py-4 rounded-2xl font-bold text-lg transition-all btn-primary text-center">
-          Download Pro (Free Trial)
+           class="px-8 py-4 rounded-2xl font-bold text-lg btn-primary text-center">
+          Download (Core + Pro)
         </a>
-        <a href="https://buscore.ca"
-           class="px-8 py-4 rounded-2xl font-semibold transition-all btn-secondary text-center">
-          Use Core Free
+        <a href="#core-vs-pro"
+           class="px-8 py-4 rounded-2xl font-semibold btn-secondary text-center">
+          See Core vs Pro
         </a>
       </div>
     </section>
 
-    <!-- FAQ -->
+    <!-- FAQ (trust-safe wording) -->
     <section class="mt-16 rounded-3xl soft-border bg-white/5 p-8 sm:p-12">
-      <h2 class="text-3xl font-bold">FAQ</h2>
+      <h2 class="text-3xl font-bold mb-8">Common questions</h2>
 
-      <div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div class="rounded-2xl soft-border bg-black/20 p-6">
-          <div class="font-semibold text-white">Does Pro change my Core data?</div>
-          <p class="mt-2 muted">
-            No. Core remains Core. Pro is an optional layer that handles entitlements and Pro features.
+          <div class="font-semibold text-white">Is this an ERP?</div>
+          <p class="mt-2 muted text-sm">
+            It’s a shop system: inventory + manufacturing logic (BOM/recipes, runs, FIFO batches).
+            Built for makers, not enterprise theatre.
           </p>
         </div>
 
         <div class="rounded-2xl soft-border bg-black/20 p-6">
-          <div class="font-semibold text-white">What happens if I cancel?</div>
-          <p class="mt-2 muted">
-            Pro features stop. Core still runs. Your data remains local and usable.
+          <div class="font-semibold text-white">What’s the difference between Core and Pro?</div>
+          <p class="mt-2 muted text-sm">
+            Core is the manufacturing engine (free forever). Pro adds desktop polish, entitlements, and the Pro workbench tools.
           </p>
         </div>
 
         <div class="rounded-2xl soft-border bg-black/20 p-6">
           <div class="font-semibold text-white">Is there a free trial?</div>
-          <p class="mt-2 muted">
-            Yes. Download Pro, sign in with your email (magic link), and you get immediate trial access.
-            Upgrade from within the app when you’re ready.
+          <p class="mt-2 muted text-sm">
+            TRIAL_TEXT. If you cancel Pro, Core keeps running.
           </p>
         </div>
 
         <div class="rounded-2xl soft-border bg-black/20 p-6">
-          <div class="font-semibold text-white">Does Pro work offline?</div>
-          <p class="mt-2 muted">
-            Core can run offline. Pro uses network/account access for entitlement checks.
+          <div class="font-semibold text-white">Is my data sent to the cloud?</div>
+          <p class="mt-2 muted text-sm">
+            Your inventory/BOM/manufacturing data is local-first. Pro uses account/entitlement services; it does not upload your shop data for analytics.
           </p>
         </div>
 
         <div class="rounded-2xl soft-border bg-black/20 p-6">
-          <div class="font-semibold text-white">Will Pro ever gate Core?</div>
-          <p class="mt-2 muted">
-            No. Core is free forever. Pro is optional. That separation is deliberate.
+          <div class="font-semibold text-white">Does it work offline?</div>
+          <p class="mt-2 muted text-sm">
+            Core runs offline. Pro validates entitlement at launch and then stays out of your session.
           </p>
         </div>
 
         <div class="rounded-2xl soft-border bg-black/20 p-6">
-          <div class="font-semibold text-white">What am I actually paying for?</div>
-          <p class="mt-2 muted">
-            The Pro wrapper, entitlement system, paid upgrade path, and the Pro feature stream — without turning Core into SaaS.
+          <div class="font-semibold text-white">What if I cancel Pro?</div>
+          <p class="mt-2 muted text-sm">
+            Pro features stop. Core continues. No hostage situation.
           </p>
         </div>
       </div>
@@ -403,27 +494,27 @@
     <section class="mt-16 card glow rounded-3xl p-8 sm:p-12 soft-border">
       <div class="flex flex-col lg:flex-row items-center justify-between gap-8">
         <div>
-          <h2 class="text-3xl font-bold">Ready to run Pro?</h2>
+          <h2 class="text-3xl font-bold">If you’re curious, download it.</h2>
           <p class="mt-3 muted text-lg max-w-2xl">
-            Download Pro, start the trial, and upgrade inside the app if it earns its keep.
-            Cancel anytime. Core stays free and local-first.
+            Reading pages doesn’t run shops. Install it, poke it, and if it earns its keep — keep Pro.
+            If not, keep Core free forever.
           </p>
         </div>
 
-        <div class="flex flex-col sm:flex-row gap-4">
+        <div class="flex flex-col sm:flex-row gap-4 flex-shrink-0">
           <a href="https://github.com/truegoodcraft/TGC-BUS-Core/releases"
-             class="px-8 py-4 rounded-2xl font-bold text-lg transition-all btn-primary text-center">
-            Download Pro (Free Trial)
+             class="px-8 py-4 rounded-2xl font-bold text-lg btn-primary text-center whitespace-nowrap">
+            Download (Core + Pro)
           </a>
-          <a href="https://buscore.ca"
-             class="px-8 py-4 rounded-2xl font-semibold transition-all btn-secondary text-center">
-            Use Core Free
+          <a href="#core-vs-pro"
+             class="px-8 py-4 rounded-2xl font-semibold btn-secondary text-center whitespace-nowrap">
+            Core vs Pro
           </a>
         </div>
       </div>
 
       <p class="mt-6 text-xs muted">
-        © True Good Craft • BUS Core is local-first software. Pro is an optional paid layer for entitlements + upgrade features.
+        © True Good Craft • BUS Core is local-first inventory + manufacturing. Pro is the optional upgrade layer.
       </p>
     </section>
 
