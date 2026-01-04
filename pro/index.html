@@ -1,271 +1,432 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BUS Core Pro — Coming Soon</title>
-  <meta name="description" content="BUS Core Pro is the paid upgrade for BUS Core: one-click run, native desktop window, offline licensing, and Pro features like RFQ generation. Coming soon." />
-
-  <!-- Open Graph -->
-  <meta property="og:title" content="BUS Core Pro — Coming Soon" />
-  <meta property="og:description" content="One-click run. Native window. Offline license. RFQ generation. Coming soon." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://buscore.ca/pro/" />
-
-  <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "0529dc7351c9443796b28aeb57117fb5"}'></script><!-- End Cloudflare Web Analytics -->
+  <title>BUS Core Pro — Professional tools for the modern workshop</title>
   <script src="https://cdn.tailwindcss.com"></script>
-
   <style>
     :root{
-      --bg0:#0b0e12;
-      --bg1:#0f1319;
-      --panel:#0f141b;
-      --panel2:#101822;
-      --border:#232b36;
-      --border2:#2e3744;
-      --text:#e6edf3;
-      --muted:#9aa6b2;
-
-      --blue:#3b82f6;
       --green:#22c55e;
+      --blue:#3b82f6;
       --amber:#f59e0b;
-      --red:#ef4444;
+      --muted:#9ca3af;
+      --bg:#0a0a0a;
     }
-    html,body{height:100%}
-    body{
-      background:
-        radial-gradient(900px 600px at 15% 10%, rgba(59,130,246,.12), transparent 60%),
-        radial-gradient(900px 600px at 85% 25%, rgba(34,197,94,.10), transparent 60%),
-        radial-gradient(1100px 800px at 55% 95%, rgba(245,158,11,.08), transparent 60%),
-        linear-gradient(180deg, var(--bg0), var(--bg1));
-      color:var(--text);
-    }
-    .card{
-      background: linear-gradient(180deg, rgba(16,24,34,.92), rgba(15,20,27,.92));
-      border: 1px solid var(--border);
-      box-shadow: 0 12px 40px rgba(0,0,0,.35);
-    }
-    .hairline{border-color:var(--border)}
-    .kbd{
-      border: 1px solid var(--border2);
-      background: rgba(0,0,0,.25);
-      padding: .15rem .45rem;
-      border-radius: .5rem;
-      font-size: .8rem;
-      color: var(--muted);
-    }
-    .glow{
-      box-shadow: 0 0 0 1px rgba(59,130,246,.25), 0 18px 60px rgba(59,130,246,.15);
-    }
+    body{ background:var(--bg); color:#e5e7eb; }
+    .card{ background: rgba(255,255,255,.03); }
+    .card.glow{ box-shadow: 0 0 90px rgba(34,197,94,.12); }
     .chip{
-      border: 1px solid var(--border2);
-      background: rgba(255,255,255,.03);
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.10);
     }
-    a{color:inherit}
+    .btn-primary{
+      background: var(--green);
+      color:#041108;
+      box-shadow: 0 18px 40px rgba(34,197,94,.18);
+    }
+    .btn-primary:hover{ filter: brightness(.95); transform: translateY(-1px) scale(1.02); }
+    .btn-secondary{
+      background: rgba(255,255,255,.03);
+      border: 1px solid rgba(255,255,255,.10);
+      color:#e5e7eb;
+    }
+    .btn-secondary:hover{ border-color: rgba(34,197,94,.45); transform: translateY(-1px); }
+    .soft-border{ border: 1px solid rgba(255,255,255,.10); }
+    .muted{ color: var(--muted); }
   </style>
 </head>
 
-<body class="antialiased">
-  <header class="max-w-6xl mx-auto px-4 sm:px-6 py-5">
-    <div class="flex items-center justify-between gap-3">
-      <a href="https://buscore.ca/" class="flex items-center gap-3">
-        <div class="h-9 w-9 rounded-xl card flex items-center justify-center">
-          <span class="text-sm font-semibold">BUS</span>
-        </div>
-        <div class="leading-tight">
-          <div class="text-sm text-[color:var(--muted)]">BUS Core</div>
-          <div class="font-semibold tracking-tight">Pro</div>
-        </div>
-      </a>
-
-      <nav class="flex items-center gap-2 sm:gap-3 text-sm text-[color:var(--muted)]">
-        <a class="px-3 py-2 rounded-xl hover:bg-white/5 chip" href="https://buscore.ca/">Home</a>
-        <a class="px-3 py-2 rounded-xl hover:bg-white/5 chip" href="https://github.com/truegoodcraft/TGC-BUS-Core">Core Repo</a>
-        <a class="px-3 py-2 rounded-xl hover:bg-white/5 chip" href="https://github.com/truegoodcraft/TGC-BUS-Core#readme">Docs</a>
-      </nav>
-    </div>
-  </header>
-
+<body>
   <main class="max-w-6xl mx-auto px-4 sm:px-6 pb-16">
-    <!-- Hero -->
-    <section class="card glow rounded-3xl p-6 sm:p-10">
-      <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
-        <div class="max-w-2xl">
-          <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full chip text-sm text-[color:var(--muted)]">
-            <span class="h-2 w-2 rounded-full bg-[color:var(--amber)]"></span>
-            Coming soon
+
+    <!-- HERO -->
+    <section class="card glow rounded-3xl p-8 sm:p-12 mt-12 soft-border">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+
+        <!-- Left -->
+        <div class="lg:col-span-7">
+          <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-sm muted">
+            <span class="w-2 h-2 rounded-full" style="background:var(--green)"></span>
+            Pro is live • Free trial • $19.99/mo after
           </div>
 
-          <h1 class="mt-4 text-3xl sm:text-4xl font-semibold tracking-tight">
-            BUS Core Pro — the “I actually use this every day” upgrade.
+          <h1 class="mt-6 text-4xl sm:text-6xl font-bold tracking-tight leading-tight">
+            Professional tools for <br>
+            <span style="color:var(--green)">the modern workshop.</span>
           </h1>
 
-          <p class="mt-4 text-base sm:text-lg text-[color:var(--muted)] leading-relaxed">
-            BUS Core stays free and open: local-first, no subscriptions, no cloud dependency.
-            <span class="text-white/90">Pro</span> is the paid layer for polish + power:
-            <span class="text-white/90">one-click run</span>, a
-            <span class="text-white/90">native desktop window</span>,
-            <span class="text-white/90">offline licensing</span>, and killer workflows like
-            <span class="text-white/90">RFQ generation</span>.
+          <p class="mt-6 text-lg sm:text-xl muted leading-relaxed max-w-2xl">
+            BUS Core stays free forever. Pro is the optional upgrade layer: a real desktop app feel,
+            entitlement-backed features, and “stable + boring” mechanics so you can stop babysitting your tooling.
           </p>
 
-          <div class="mt-6 flex flex-wrap gap-2">
-            <span class="chip px-3 py-2 rounded-xl text-sm text-[color:var(--muted)]">One-click launch</span>
-            <span class="chip px-3 py-2 rounded-xl text-sm text-[color:var(--muted)]">Native window</span>
-            <span class="chip px-3 py-2 rounded-xl text-sm text-[color:var(--muted)]">Offline .lic (signed)</span>
-            <span class="chip px-3 py-2 rounded-xl text-sm text-[color:var(--muted)]">Stable + boring (on purpose)</span>
-            <span class="chip px-3 py-2 rounded-xl text-sm text-[color:var(--muted)]">RFQ generation</span>
-          </div>
-
-          <div class="mt-8 flex flex-col sm:flex-row gap-3">
+          <div class="mt-8 flex flex-col sm:flex-row gap-4">
             <a href="https://github.com/truegoodcraft/TGC-BUS-Core/releases"
-               class="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-2xl bg-[color:var(--blue)] text-white font-semibold hover:opacity-90">
-              Follow releases
-              <span aria-hidden="true">→</span>
+               class="px-8 py-4 rounded-2xl font-bold text-lg transition-all btn-primary text-center">
+              Download Pro (Free Trial)
             </a>
-
-            <!-- TODO: replace this with your Pro repo link when public -->
-            <a href="https://github.com/truegoodcraft"
-               class="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-2xl chip font-semibold hover:bg-white/5">
-              Track development (GitHub)
-              <span aria-hidden="true">↗</span>
+            <a href="https://buscore.ca"
+               class="px-8 py-4 rounded-2xl font-semibold transition-all btn-secondary text-center">
+              Use Core Free
             </a>
           </div>
 
-          <p class="mt-4 text-sm text-[color:var(--muted)]">
-            Tip: on GitHub, hit <span class="kbd">Watch</span> → <span class="kbd">Releases</span> to get notified without any mailing list nonsense.
+          <p class="mt-4 text-sm muted">
+            Core is local-first and doesn’t require a cloud subscription. Pro uses network/account for entitlements.
+            No mid-session lockouts — checks at launch, then stays out of your way.
           </p>
         </div>
 
-        <!-- Status panel -->
-        <div class="w-full lg:w-[420px]">
-          <div class="card rounded-3xl p-5 sm:p-6">
-            <div class="flex items-center justify-between">
-              <div class="text-sm text-[color:var(--muted)]">Status</div>
-              <div class="text-xs px-2.5 py-1 rounded-full chip text-[color:var(--muted)]">Early Access planned</div>
-            </div>
-
-            <div class="mt-4 space-y-3 text-sm">
-              <div class="flex items-start gap-3">
-                <div class="mt-1 h-2.5 w-2.5 rounded-full bg-[color:var(--green)]"></div>
-                <div>
-                  <div class="font-semibold">Core is available now</div>
-                  <div class="text-[color:var(--muted)]">Free, open, local-first. No lock-in.</div>
+        <!-- Right: Pricing Card (simple, clean, green-first) -->
+        <div class="lg:col-span-5">
+          <div class="rounded-3xl soft-border bg-white/5 p-6 sm:p-8">
+            <div class="flex items-start justify-between gap-4">
+              <div>
+                <div class="text-sm uppercase tracking-widest muted">BUS Core Pro</div>
+                <div class="mt-2 text-4xl font-bold text-white">
+                  $19.99<span class="text-base muted">/mo</span>
+                </div>
+                <div class="mt-1 text-sm muted">
+                  After trial • Cancel anytime
                 </div>
               </div>
-
-              <div class="flex items-start gap-3">
-                <div class="mt-1 h-2.5 w-2.5 rounded-full bg-[color:var(--amber)]"></div>
-                <div>
-                  <div class="font-semibold">Pro is in active development</div>
-                  <div class="text-[color:var(--muted)]">Native shell + licensing + Pro workflows.</div>
-                </div>
-              </div>
-
-              <div class="flex items-start gap-3">
-                <div class="mt-1 h-2.5 w-2.5 rounded-full bg-white/25"></div>
-                <div>
-                  <div class="font-semibold">First Pro “killer”</div>
-                  <div class="text-[color:var(--muted)]">RFQ generation (turn your inventory + blueprints into quotes fast).</div>
-                </div>
+              <div class="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs muted">
+                Stable + boring
               </div>
             </div>
 
-            <hr class="my-5 hairline">
+            <ul class="mt-6 space-y-3 muted">
+              <li class="flex gap-3">
+                <span class="mt-1 w-2 h-2 rounded-full" style="background:var(--green)"></span>
+                Desktop launcher experience (no terminal rituals)
+              </li>
+              <li class="flex gap-3">
+                <span class="mt-1 w-2 h-2 rounded-full" style="background:var(--green)"></span>
+                Pro entitlement validation + caching
+              </li>
+              <li class="flex gap-3">
+                <span class="mt-1 w-2 h-2 rounded-full" style="background:var(--green)"></span>
+                Manage subscription / billing link in-app
+              </li>
+              <li class="flex gap-3">
+                <span class="mt-1 w-2 h-2 rounded-full" style="background:var(--green)"></span>
+                Core remains free and unaffected
+              </li>
+            </ul>
 
-            <div class="text-sm">
-              <div class="font-semibold">What Pro is (and isn’t)</div>
-              <ul class="mt-2 space-y-2 text-[color:var(--muted)]">
-                <li>• Pro runs beside Core — it doesn’t change Core.</li>
-                <li>• Your data stays local. No telemetry. No surprise cloud.</li>
-                <li>• Offline license file: <span class="text-white/90">.lic</span> signed by the developer (trust-based, for now).</li>
-              </ul>
-            </div>
+            <a href="https://github.com/truegoodcraft/TGC-BUS-Core/releases"
+               class="mt-7 block text-center px-8 py-4 rounded-2xl font-bold text-lg transition-all btn-primary">
+              Download & Try Free
+            </a>
+
+            <p class="mt-3 text-xs muted text-center">
+              Cancel anytime. Core still runs.
+            </p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Feature teaser grid -->
-    <section class="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-      <div class="card rounded-3xl p-5">
-        <div class="text-sm text-[color:var(--muted)]">Launch</div>
-        <div class="mt-2 font-semibold">One-click run</div>
-        <p class="mt-2 text-sm text-[color:var(--muted)]">
-          Start Core reliably, every time. No “which terminal did I use?” energy.
-        </p>
-      </div>
-
-      <div class="card rounded-3xl p-5">
-        <div class="text-sm text-[color:var(--muted)]">UI</div>
-        <div class="mt-2 font-semibold">Native window</div>
-        <p class="mt-2 text-sm text-[color:var(--muted)]">
-          A proper desktop shell around the web UI. Looks and feels like an app.
-        </p>
-      </div>
-
-      <div class="card rounded-3xl p-5">
-        <div class="text-sm text-[color:var(--muted)]">License</div>
-        <div class="mt-2 font-semibold">Offline .lic</div>
-        <p class="mt-2 text-sm text-[color:var(--muted)]">
-          Signed license file. Works offline. You keep control of your shop machine.
-        </p>
-      </div>
-
-      <div class="card rounded-3xl p-5">
-        <div class="text-sm text-[color:var(--muted)]">Pro tools</div>
-        <div class="mt-2 font-semibold">RFQ generation</div>
-        <p class="mt-2 text-sm text-[color:var(--muted)]">
-          Generate clean quotes quickly. The “this saves me time” feature.
-        </p>
-      </div>
-    </section>
-
-    <!-- Early access blurb -->
-    <section class="mt-10 card rounded-3xl p-6 sm:p-8">
-      <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
-        <div class="max-w-3xl">
-          <h2 class="text-xl sm:text-2xl font-semibold tracking-tight">Early Access (Supporter)</h2>
-          <p class="mt-2 text-[color:var(--muted)]">
-            Early Access is a simple market test. If people use it and want more, I’ll keep building. 
-            If not, it stops here.
-          </p>
-          <p class="mt-3 text-sm text-[color:var(--muted)]">
-            Early supporters may get a “lifetime updates” key offer (details TBD).
-          </p>
+    <!-- TRIAL FLOW CALLOUT (simple version from the clean page, but Tailwind-styled) -->
+    <section class="mt-8 rounded-2xl soft-border p-6"
+             style="border-color: rgba(34,197,94,.35); background: rgba(34,197,94,.06);">
+      <div class="flex items-start gap-4">
+        <div class="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0"
+             style="background: rgba(34,197,94,.10); border: 1px solid rgba(34,197,94,.35);">
+          <span style="color:var(--green)" class="text-xl font-bold">✓</span>
         </div>
-
-        <div class="flex flex-col sm:flex-row gap-3">
-          <a class="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-2xl bg-white/10 hover:bg-white/15 border border-[color:var(--border)] font-semibold"
-             href="https://buscore.ca/">
-            Grab Core now
-            <span aria-hidden="true">→</span>
-          </a>
-          <a class="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-2xl border border-[color:var(--border)] hover:bg-white/5 font-semibold"
-             href="https://github.com/truegoodcraft/TGC-BUS-Core">
-            Star the repo
-            <span aria-hidden="true">↗</span>
-          </a>
+        <div>
+          <div class="font-bold text-white">Free Trial Flow</div>
+          <p class="mt-2 muted text-sm">
+            Download Pro → Sign in with email (magic link) → Trial access → Upgrade anytime from
+            <span class="text-white font-semibold">Manage Subscription</span> inside the app.
+          </p>
         </div>
       </div>
     </section>
 
-    <footer class="mt-10 pb-2 text-sm text-[color:var(--muted)]">
-      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
-        <div>© <span id="y"></span> True Good Craft — BUS Core Pro</div>
-        <div class="flex flex-wrap gap-3">
-          <a class="hover:text-white" href="https://buscore.ca/">buscore.ca</a>
-          <span class="text-white/20">•</span>
-          <a class="hover:text-white" href="https://github.com/truegoodcraft/TGC-BUS-Core">Core</a>
-          <span class="text-white/20">•</span>
-          <a class="hover:text-white" href="https://github.com/truegoodcraft/TGC-BUS-Core#readme">Docs</a>
+    <!-- TRUST STRIP -->
+    <section class="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-4">
+      <div class="rounded-2xl soft-border bg-white/5 p-5">
+        <div class="text-sm uppercase tracking-widest muted">Core</div>
+        <div class="mt-2 font-bold text-white text-lg">Free forever</div>
+        <div class="mt-1 text-sm muted">Local database. Your workflows.</div>
+      </div>
+      <div class="rounded-2xl soft-border bg-white/5 p-5">
+        <div class="text-sm uppercase tracking-widest muted">Pro</div>
+        <div class="mt-2 font-bold text-white text-lg">$19.99/mo</div>
+        <div class="mt-1 text-sm muted">Entitlements + upgrade layer.</div>
+      </div>
+      <div class="rounded-2xl soft-border bg-white/5 p-5">
+        <div class="text-sm uppercase tracking-widest muted">Policy</div>
+        <div class="mt-2 font-bold text-white text-lg">No lockouts</div>
+        <div class="mt-1 text-sm muted">No mid-session gating. Start-up checks only.</div>
+      </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section class="mt-12">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="card rounded-3xl p-8 soft-border bg-white/5">
+          <h3 class="font-bold text-xl mb-3">A Real App, Not a Ritual</h3>
+          <p class="muted">
+            Click an icon. It opens. No terminal gymnastics. No guessing which command.
+          </p>
+          <div class="mt-4 inline-flex items-center gap-2 text-xs muted bg-white/5 border border-white/10 rounded-full px-3 py-1">
+            <span class="w-2 h-2 rounded-full" style="background:var(--green)"></span>
+            One-click launch
+          </div>
+        </div>
+
+        <div class="card rounded-3xl p-8 soft-border bg-white/5">
+          <h3 class="font-bold text-xl mb-3">Entitlements That Behave</h3>
+          <p class="muted">
+            Validates cleanly, caches access, and doesn’t nag while you’re working.
+          </p>
+          <div class="mt-4 inline-flex items-center gap-2 text-xs muted bg-white/5 border border-white/10 rounded-full px-3 py-1">
+            <span class="w-2 h-2 rounded-full" style="background:var(--green)"></span>
+            Check at launch
+          </div>
+        </div>
+
+        <div class="card rounded-3xl p-8 soft-border bg-white/5">
+          <h3 class="font-bold text-xl mb-3">Core Stays Sacred</h3>
+          <p class="muted">
+            Pro never corrupts Core. Cancel Pro anytime — Core still runs and your data stays yours.
+          </p>
+          <div class="mt-4 inline-flex items-center gap-2 text-xs muted bg-white/5 border border-white/10 rounded-full px-3 py-1">
+            <span class="w-2 h-2 rounded-full" style="background:var(--green)"></span>
+            No hostage situation
+          </div>
         </div>
       </div>
-    </footer>
+    </section>
+
+    <!-- HOW IT WORKS (clean-page vibe: simple steps + side card) -->
+    <section class="mt-16 rounded-3xl soft-border bg-white/5 p-8 sm:p-12">
+      <div class="flex flex-col lg:flex-row gap-10 items-start">
+        <div class="flex-1">
+          <h2 class="text-3xl font-bold">How Pro works</h2>
+          <p class="mt-4 muted text-lg max-w-3xl">
+            Pro is designed to be boring: validate at launch, show status clearly, and offer a clean path to manage billing.
+            It doesn’t interrupt your session. It doesn’t rewrite Core.
+          </p>
+
+          <ol class="mt-8 space-y-4 muted">
+            <li class="flex gap-4">
+              <div class="w-8 h-8 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-sm text-white font-bold">1</div>
+              <div>
+                <div class="text-white font-semibold">Install Pro</div>
+                <div class="text-sm">You get a proper app wrapper + upgrade tooling around Core.</div>
+              </div>
+            </li>
+            <li class="flex gap-4">
+              <div class="w-8 h-8 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-sm text-white font-bold">2</div>
+              <div>
+                <div class="text-white font-semibold">Sign in</div>
+                <div class="text-sm">Magic link sign-in → entitlement check → you’re in.</div>
+              </div>
+            </li>
+            <li class="flex gap-4">
+              <div class="w-8 h-8 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-sm text-white font-bold">3</div>
+              <div>
+                <div class="text-white font-semibold">Work normally</div>
+                <div class="text-sm">No mid-session “gotchas.” Pro stays out of the way.</div>
+              </div>
+            </li>
+          </ol>
+        </div>
+
+        <div class="w-full lg:w-[420px] rounded-3xl soft-border bg-black/30 p-6">
+          <div class="text-sm uppercase tracking-widest muted">Pro includes</div>
+          <ul class="mt-4 space-y-3 muted">
+            <li class="flex gap-3"><span class="mt-1 w-2 h-2 rounded-full" style="background:var(--green)"></span>Desktop wrapper / launcher</li>
+            <li class="flex gap-3"><span class="mt-1 w-2 h-2 rounded-full" style="background:var(--green)"></span>Subscription entitlement checks</li>
+            <li class="flex gap-3"><span class="mt-1 w-2 h-2 rounded-full" style="background:var(--green)"></span>Cached access state</li>
+            <li class="flex gap-3"><span class="mt-1 w-2 h-2 rounded-full" style="background:var(--green)"></span>Billing management link</li>
+          </ul>
+
+          <div class="mt-6 rounded-2xl soft-border bg-white/5 p-4">
+            <div class="text-xs uppercase tracking-widest muted">Price</div>
+            <div class="mt-2 text-2xl font-bold text-white">$19.99/mo</div>
+            <div class="mt-1 text-xs muted">After trial • Cancel anytime • Core still runs</div>
+          </div>
+
+          <a href="https://github.com/truegoodcraft/TGC-BUS-Core/releases"
+             class="mt-5 block text-center px-6 py-3 rounded-2xl font-bold transition-all btn-primary">
+            Download Pro (Free Trial)
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ERP COST COMPARISON (keep it punchy + green-first) -->
+    <section class="mt-16 rounded-3xl soft-border bg-white/5 p-8 sm:p-12">
+      <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
+        <div>
+          <h2 class="text-3xl font-bold">ERP pricing is… yeah.</h2>
+          <p class="mt-3 muted text-lg max-w-3xl">
+            A lot of “small business ERP/MRP” pricing is engineered to be painful to leave.
+            Here’s the blunt comparison over 36 months.
+          </p>
+        </div>
+        <div class="text-sm muted">
+          Window:
+          <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 ml-2">
+            <span class="w-2 h-2 rounded-full" style="background:var(--amber)"></span>
+            36 months
+          </span>
+        </div>
+      </div>
+
+      <div class="mt-10 grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <!-- Your product -->
+        <div class="rounded-3xl soft-border p-7"
+             style="background: rgba(34,197,94,.08); border-color: rgba(34,197,94,.28);">
+          <div class="flex items-start justify-between gap-4">
+            <div>
+              <div class="text-sm uppercase tracking-widest muted">BUS Core Pro</div>
+              <div class="mt-2 text-4xl font-bold text-white">$719.64</div>
+              <div class="mt-1 text-sm muted">$19.99/mo × 36 months</div>
+            </div>
+            <div class="px-3 py-1 rounded-full bg-white/10 border border-white/10 text-xs text-white">
+              predictable
+            </div>
+          </div>
+
+          <div class="mt-6 muted">
+            Core is still <span class="text-white font-semibold">$0</span>. Pro is optional.
+            If you cancel, Core keeps running.
+          </div>
+        </div>
+
+        <!-- Competitors -->
+        <div class="rounded-3xl soft-border bg-black/30 p-7">
+          <div class="text-sm uppercase tracking-widest muted">Typical competitors</div>
+
+          <div class="mt-5 space-y-4 text-sm">
+            <div class="flex items-start justify-between gap-6">
+              <div>
+                <div class="font-semibold text-white">MRP / Inventory SaaS</div>
+                <div class="muted">$399/mo → $599/mo (common range)</div>
+              </div>
+              <div class="text-right">
+                <div class="text-white font-semibold">$14,364 → $21,564</div>
+                <div class="text-xs muted">over 36 months</div>
+              </div>
+            </div>
+
+            <div class="h-px bg-white/10"></div>
+
+            <div class="flex items-start justify-between gap-6">
+              <div>
+                <div class="font-semibold text-white">Accounting + add-ons</div>
+                <div class="muted">$220/mo + integrations (varies)</div>
+              </div>
+              <div class="text-right">
+                <div class="text-white font-semibold">$7,920+</div>
+                <div class="text-xs muted">over 36 months</div>
+              </div>
+            </div>
+          </div>
+
+          <p class="mt-5 text-xs muted">
+            Totals exclude taxes, implementation, add-ons, and price changes. Swap the ranges above for named competitors when you’re ready.
+          </p>
+        </div>
+      </div>
+
+      <div class="mt-10 flex flex-col sm:flex-row gap-4">
+        <a href="https://github.com/truegoodcraft/TGC-BUS-Core/releases"
+           class="px-8 py-4 rounded-2xl font-bold text-lg transition-all btn-primary text-center">
+          Download Pro (Free Trial)
+        </a>
+        <a href="https://buscore.ca"
+           class="px-8 py-4 rounded-2xl font-semibold transition-all btn-secondary text-center">
+          Use Core Free
+        </a>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="mt-16 rounded-3xl soft-border bg-white/5 p-8 sm:p-12">
+      <h2 class="text-3xl font-bold">FAQ</h2>
+
+      <div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="rounded-2xl soft-border bg-black/20 p-6">
+          <div class="font-semibold text-white">Does Pro change my Core data?</div>
+          <p class="mt-2 muted">
+            No. Core remains Core. Pro is an optional layer that handles entitlements and Pro features.
+          </p>
+        </div>
+
+        <div class="rounded-2xl soft-border bg-black/20 p-6">
+          <div class="font-semibold text-white">What happens if I cancel?</div>
+          <p class="mt-2 muted">
+            Pro features stop. Core still runs. Your data remains local and usable.
+          </p>
+        </div>
+
+        <div class="rounded-2xl soft-border bg-black/20 p-6">
+          <div class="font-semibold text-white">Is there a free trial?</div>
+          <p class="mt-2 muted">
+            Yes. Download Pro, sign in with your email (magic link), and you get immediate trial access.
+            Upgrade from within the app when you’re ready.
+          </p>
+        </div>
+
+        <div class="rounded-2xl soft-border bg-black/20 p-6">
+          <div class="font-semibold text-white">Does Pro work offline?</div>
+          <p class="mt-2 muted">
+            Core can run offline. Pro uses network/account access for entitlement checks.
+          </p>
+        </div>
+
+        <div class="rounded-2xl soft-border bg-black/20 p-6">
+          <div class="font-semibold text-white">Will Pro ever gate Core?</div>
+          <p class="mt-2 muted">
+            No. Core is free forever. Pro is optional. That separation is deliberate.
+          </p>
+        </div>
+
+        <div class="rounded-2xl soft-border bg-black/20 p-6">
+          <div class="font-semibold text-white">What am I actually paying for?</div>
+          <p class="mt-2 muted">
+            The Pro wrapper, entitlement system, paid upgrade path, and the Pro feature stream — without turning Core into SaaS.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="mt-16 card glow rounded-3xl p-8 sm:p-12 soft-border">
+      <div class="flex flex-col lg:flex-row items-center justify-between gap-8">
+        <div>
+          <h2 class="text-3xl font-bold">Ready to run Pro?</h2>
+          <p class="mt-3 muted text-lg max-w-2xl">
+            Download Pro, start the trial, and upgrade inside the app if it earns its keep.
+            Cancel anytime. Core stays free and local-first.
+          </p>
+        </div>
+
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="https://github.com/truegoodcraft/TGC-BUS-Core/releases"
+             class="px-8 py-4 rounded-2xl font-bold text-lg transition-all btn-primary text-center">
+            Download Pro (Free Trial)
+          </a>
+          <a href="https://buscore.ca"
+             class="px-8 py-4 rounded-2xl font-semibold transition-all btn-secondary text-center">
+            Use Core Free
+          </a>
+        </div>
+      </div>
+
+      <p class="mt-6 text-xs muted">
+        © True Good Craft • BUS Core is local-first software. Pro is an optional paid layer for entitlements + upgrade features.
+      </p>
+    </section>
+
   </main>
-
-  <script>
-    document.getElementById("y").textContent = new Date().getFullYear();
-  </script>
 </body>
 </html>
