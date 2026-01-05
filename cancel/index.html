@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BUS Core Pro — Cancelled</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root {
+      --bg-dark: #0a0a0a;
+      --bg-card: #141414;
+      --accent-green: #22c55e;
+      --text-main: #f3f4f6;
+      --text-muted: #9ca3af;
+      --border: #27272a;
+    }
+    body { background-color: var(--bg-dark); color: var(--text-main); font-family: system-ui, -apple-system, sans-serif; }
+    .card { background-color: var(--bg-card); border: 1px solid var(--border); }
+    .hero-glow { background: radial-gradient(circle at 50% 0%, rgba(34, 197, 94, 0.14), transparent 70%); }
+
+    .btn-primary {
+      background-color: var(--accent-green);
+      color: #000;
+      font-weight: 800;
+      transition: all 0.18s ease;
+    }
+    .btn-primary:hover { background-color: #16a34a; transform: translateY(-1px); }
+
+    .btn-secondary {
+      border: 1px solid var(--border);
+      color: var(--text-main);
+      background: rgba(255,255,255,0.03);
+      transition: all 0.18s ease;
+    }
+    .btn-secondary:hover { border-color: rgba(34,197,94,0.45); background: rgba(255,255,255,0.06); transform: translateY(-1px); }
+
+    .pill {
+      border: 1px solid rgba(34,197,94,0.30);
+      background: rgba(34,197,94,0.10);
+      color: rgba(34,197,94,0.95);
+    }
+  </style>
+</head>
+
+<body class="antialiased selection:bg-green-900 selection:text-green-100">
+
+  <!-- NAV -->
+  <nav class="border-b border-[var(--border)] bg-[var(--bg-dark)]/80 backdrop-blur sticky top-0 z-50">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+      <a href="https://buscore.ca" class="flex items-center gap-2 font-bold text-lg tracking-tight">
+        <span class="text-green-500">BUS</span> Core
+      </a>
+      <div class="flex items-center gap-4">
+        <a href="https://buscore.ca/pro/" class="text-sm font-medium text-[var(--text-muted)] hover:text-green-400 transition-colors">Pro</a>
+        <a href="https://github.com/truegoodcraft/TGC-BUS-Core/releases" class="text-sm font-medium text-[var(--text-muted)] hover:text-green-400 transition-colors">Downloads</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- CONTENT -->
+  <main>
+    <section class="relative pt-16 pb-10 px-4 sm:px-6 hero-glow overflow-hidden">
+      <div class="max-w-3xl mx-auto text-center">
+
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full pill text-xs font-semibold uppercase tracking-wider mb-6">
+          <span class="w-2 h-2 rounded-full bg-green-500"></span>
+          Cancellation confirmed
+        </div>
+
+        <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight leading-tight mb-4">
+          No worries — you’re all set.
+        </h1>
+
+        <p class="text-lg sm:text-xl text-[var(--text-muted)] leading-relaxed max-w-2xl mx-auto">
+          Your <strong class="text-white">BUS Core Pro</strong> subscription was cancelled.
+          You will <strong class="text-white">not</strong> be charged going forward.
+        </p>
+      </div>
+    </section>
+
+    <section class="max-w-4xl mx-auto px-4 pb-20">
+      <div class="card rounded-3xl p-8 sm:p-10">
+
+        <h2 class="text-2xl font-bold mb-3">Important: you don’t lose anything.</h2>
+        <p class="text-[var(--text-muted)] leading-relaxed">
+          <strong class="text-white">BUS Core is free forever.</strong> Your data stays on your machine, and you keep full access to it.
+          Cancelling Pro does <strong class="text-white">not</strong> delete your inventory, BOMs/recipes, batches, or history.
+        </p>
+
+        <div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div class="rounded-2xl border border-[var(--border)] bg-black/30 p-5">
+            <div class="text-xs font-mono text-[var(--text-muted)] mb-2">DATA</div>
+            <div class="font-semibold text-white">Stays yours</div>
+            <div class="text-sm text-[var(--text-muted)] mt-1">Local-first. Nothing gets “held hostage.”</div>
+          </div>
+          <div class="rounded-2xl border border-[var(--border)] bg-black/30 p-5">
+            <div class="text-xs font-mono text-[var(--text-muted)] mb-2">CORE</div>
+            <div class="font-semibold text-white">Runs forever</div>
+            <div class="text-sm text-[var(--text-muted)] mt-1">Keep using Core without paying.</div>
+          </div>
+          <div class="rounded-2xl border border-[var(--border)] bg-black/30 p-5">
+            <div class="text-xs font-mono text-[var(--text-muted)] mb-2">LAUNCHER</div>
+            <div class="font-semibold text-white">Still useful</div>
+            <div class="text-sm text-[var(--text-muted)] mt-1">You can keep using the Pro launcher to run Core.</div>
+          </div>
+        </div>
+
+        <div class="mt-8 border-t border-[var(--border)] pt-8">
+          <h3 class="text-xl font-bold mb-2">You can still use the Pro launcher (even without Pro)</h3>
+          <p class="text-[var(--text-muted)] leading-relaxed">
+            The Pro launcher is a solid way to run Core: one click, reliable startup, and it can pull the
+            most recent <strong class="text-white">public stable</strong> build so you’re not babysitting installs.
+            You don’t have to pay to keep using it as a launcher for Core.
+          </p>
+
+          <div class="mt-6 flex flex-col sm:flex-row gap-3 justify-center">
+            <a href="https://buscore.ca" class="btn-primary px-6 py-3 rounded-xl text-lg text-center w-full sm:w-auto">
+              Go to Core (Free)
+            </a>
+            <a href="https://github.com/truegoodcraft/TGC-BUS-Core/releases" class="btn-secondary px-6 py-3 rounded-xl text-lg text-center w-full sm:w-auto">
+              Download Latest Build
+            </a>
+            <a href="https://buscore.ca/pro/" class="btn-secondary px-6 py-3 rounded-xl text-lg text-center w-full sm:w-auto">
+              Re-enable Pro
+            </a>
+          </div>
+
+          <p class="mt-4 text-xs text-[var(--text-muted)] text-center">
+            If you cancelled by accident, you can re-enable Pro anytime.
+          </p>
+        </div>
+
+        <div class="mt-8 rounded-2xl border border-green-500/20 bg-green-500/5 p-5">
+          <div class="text-sm font-semibold text-white">Quick note</div>
+          <p class="mt-2 text-sm text-[var(--text-muted)] leading-relaxed">
+            If there was a specific reason you cancelled (missing feature, pricing, confusion, etc.),
+            you can reply to the last email receipt or open an issue on GitHub. No pressure — it just helps
+            prioritize what gets built next.
+          </p>
+        </div>
+
+      </div>
+
+      <p class="mt-6 text-xs text-[var(--text-muted)] text-center">
+        © 2026 True Good Craft • BUS Core is local-first. Your data stays yours.
+      </p>
+    </section>
+  </main>
+
+  <footer class="border-t border-[var(--border)] py-8 text-center text-sm text-[var(--text-muted)]">
+    <p>&copy; 2026 True Good Craft. Built for makers.</p>
+  </footer>
+
+</body>
+</html>
