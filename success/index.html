@@ -1,109 +1,252 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SYSTEM STATE: PRO ACTIVE</title>
-    <style>
-        :root {
-            --bg: #121212;
-            --surface: #1a1a1a;
-            --primary: #4CAF50;
-            --text: #e0e0e0;
-            --muted: #888;
-            --border: #333;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BUS Core Pro — Success</title>
+  <style>
+    :root {
+      --bg-dark: #0a0a0a;
+      --bg-card: #141414;
+      --accent-green: #22c55e;
+      --text-main: #f3f4f6;
+      --text-muted: #9ca3af;
+      --border: #27272a;
+    }
 
-        body {
-            background-color: var(--bg);
-            color: var(--text);
-            font-family: 'JetBrains Mono', 'Roboto Mono', monospace;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            line-height: 1.6;
-        }
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      font-family: system-ui, -apple-system, sans-serif;
+      margin: 0;
+      min-height: 100vh;
+    }
 
-        .container {
-            max-width: 600px;
-            width: 90%;
-            border: 1px solid var(--border);
-            padding: 3rem;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-        }
+    .hero-glow {
+      background: radial-gradient(circle at 50% 0%, rgba(34, 197, 94, 0.14), transparent 70%);
+    }
 
-        h1 {
-            color: var(--primary);
-            font-size: 1.5rem;
-            margin-top: 0;
-            border-bottom: 2px solid var(--primary);
-            padding-bottom: 0.5rem;
-            letter-spacing: 2px;
-        }
+    .card {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border);
+    }
 
-        .status-block {
-            background-color: var(--surface);
-            border-left: 4px solid var(--primary);
-            padding: 1.5rem;
-            margin: 2rem 0;
-            font-size: 0.9rem;
-        }
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(34,197,94,0.30);
+      background: rgba(34,197,94,0.10);
+      color: rgba(34,197,94,0.95);
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
 
-        .instruction {
-            color: var(--muted);
-            font-size: 0.85rem;
-            margin-bottom: 2rem;
-        }
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--accent-green);
+      box-shadow: 0 0 14px rgba(34,197,94,0.45);
+    }
 
-        .btn {
-            display: inline-block;
-            background-color: var(--text);
-            color: var(--bg);
-            text-decoration: none;
-            padding: 0.8rem 1.5rem;
-            font-weight: bold;
-            text-transform: uppercase;
-            transition: opacity 0.2s;
-        }
+    .btn-primary {
+      display: inline-block;
+      background-color: var(--accent-green);
+      color: #000;
+      font-weight: 800;
+      text-decoration: none;
+      padding: 14px 18px;
+      border-radius: 12px;
+      transition: all 0.18s ease;
+      text-align: center;
+    }
+    .btn-primary:hover {
+      background-color: #16a34a;
+      transform: translateY(-1px);
+    }
 
-        .btn:hover {
-            opacity: 0.8;
-        }
+    .btn-secondary {
+      display: inline-block;
+      border: 1px solid var(--border);
+      color: var(--text-main);
+      background: rgba(255,255,255,0.03);
+      font-weight: 700;
+      text-decoration: none;
+      padding: 14px 18px;
+      border-radius: 12px;
+      transition: all 0.18s ease;
+      text-align: center;
+    }
+    .btn-secondary:hover {
+      border-color: rgba(34,197,94,0.45);
+      background: rgba(255,255,255,0.06);
+      transform: translateY(-1px);
+    }
 
-        .receipt-link {
-            display: block;
-            margin-top: 1rem;
-            color: var(--muted);
-            text-decoration: underline;
-            font-size: 0.8rem;
-        }
-    </style>
+    .mono {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    }
+
+    .fine {
+      color: var(--text-muted);
+      font-size: 12px;
+      line-height: 1.6;
+    }
+
+    /* layout helpers */
+    .wrap {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 0 16px;
+    }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(10,10,10,0.80);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-inner {
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: var(--text-main);
+      text-decoration: none;
+    }
+
+    .brand span {
+      color: var(--accent-green);
+    }
+
+    .link {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 13px;
+    }
+    .link:hover { color: rgba(34,197,94,0.95); }
+
+    .grid {
+      display: grid;
+      gap: 12px;
+    }
+
+    @media (min-width: 640px) {
+      .grid-2 { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
 </head>
-<body>
 
-<div class="container">
-    <h1>[ SUCCESS ]</h1>
-    <p>Thank You! Purchase complete.</p>
+<body class="antialiased">
 
-    <div class="status-block">
-        <pre>
+  <!-- NAV -->
+  <div class="nav">
+    <div class="wrap nav-inner">
+      <a class="brand" href="https://buscore.ca">
+        <span>BUS</span> Core Pro
+      </a>
+      <a class="link" href="https://buscore.ca/pro/">Pro</a>
+    </div>
+  </div>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero-glow" style="padding: 64px 0 24px;">
+      <div class="wrap" style="text-align:center;">
+        <div class="pill" style="margin: 0 auto 16px;">
+          <span class="dot"></span>
+          Pro active
+        </div>
+
+        <h1 style="margin: 0 0 10px; font-size: 40px; line-height: 1.15; font-weight: 900; letter-spacing: -0.03em;">
+          You’re in. Pro is enabled.
+        </h1>
+
+        <p style="margin: 0 auto; max-width: 560px; color: var(--text-muted); font-size: 16px; line-height: 1.7;">
+          Payment confirmed. Your account now has Pro entitlements.
+          You can close this tab and go back to the app.
+        </p>
+      </div>
+    </section>
+
+    <!-- CONTENT -->
+    <section style="padding: 24px 0 72px;">
+      <div class="wrap">
+        <div class="card" style="border-radius: 20px; padding: 22px;">
+          <div style="display:flex; align-items:flex-start; justify-content:space-between; gap: 16px; flex-wrap: wrap;">
+            <div>
+              <div class="mono" style="color: var(--text-muted); font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase;">
+                System state
+              </div>
+              <div style="margin-top: 6px; font-size: 20px; font-weight: 900;">
+                [ SUCCESS ]
+              </div>
+            </div>
+            <div class="pill" style="border-color: rgba(34,197,94,0.22); background: rgba(34,197,94,0.08);">
+              <span class="dot"></span>
+              Verified
+            </div>
+          </div>
+
+          <div class="card mono" style="margin-top: 14px; border-radius: 16px; padding: 16px; background: rgba(0,0,0,0.30);">
+<pre style="margin:0; white-space: pre-wrap; color: var(--text-main); font-size: 13px; line-height: 1.7;">
 ENTITY:   BUS_CORE_PRO
 STATUS:   ACTIVE_SUB
 SOURCE:   STRIPE_AUTHORITATIVE
 SYNC:     READY_FOR_SHELL
-        </pre>
+</pre>
+          </div>
+
+          <div style="margin-top: 16px;" class="fine">
+            Next step: return to <strong style="color: var(--text-main);">BUS Pro</strong>.
+            If the app is open, hit <strong style="color: var(--text-main);">Refresh</strong>.
+            If it’s closed, just launch it again.
+          </div>
+
+          <div class="grid grid-2" style="margin-top: 18px;">
+            <a class="btn-primary" href="https://buscore.ca/pro/">
+              Back to Pro
+            </a>
+            <a class="btn-secondary" href="https://billing.stripe.com/p/login/test_6oUbJ03X3g7uexKe8bdwc00">
+              Open Customer Portal
+            </a>
+          </div>
+
+          <div style="margin-top: 14px;" class="fine">
+            Core note: <strong style="color: var(--text-main);">BUS Core remains free forever</strong>.
+            Pro is optional and never gates your data.
+          </div>
+        </div>
+
+        <p class="fine" style="text-align:center; margin-top: 14px;">
+          © 2026 True Good Craft • Local-first software • Your data stays yours
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer style="border-top: 1px solid var(--border); padding: 28px 0; text-align:center;">
+    <div class="wrap fine">
+      Built for makers.
     </div>
-
-    <p class="instruction">
-        You may now close this browser window and return to <strong>BUS Pro</strong>.
-    </p>
-
-    
-    
-    <a href="https://billing.stripe.com/p/login/test_6oUbJ03X3g7uexKe8bdwc00" class="receipt-link">View Stripe Customer Portal</a>
-</div>
+  </footer>
 
 </body>
 </html>
